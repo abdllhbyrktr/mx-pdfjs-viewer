@@ -1,0 +1,12 @@
+{
+  "name": "mx-pdfjs-viewer",
+  "version": "0.1.0",
+  "description": "pdf.js viewer for Maxthon browser",
+  "private": true,
+  "author": "abdllhbyrktr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abdllhbyrktr/mx-pdfjs-viewer/issues"
+  },
+  "homepage": "https://github.com/abdllhbyrktr/mx-pdfjs-viewer#readme"
+}
