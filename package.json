@@ -1,6 +1,6 @@
 {
   "name": "mx-pdfjs-viewer",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "pdf.js viewer for Maxthon browser",
   "private": true,
   "author": "abdllhbyrktr",
