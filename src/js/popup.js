@@ -24,12 +24,6 @@ function loadPdf(url) {
 
   loading = true;
   mxStorage.setConfig(PDF_FILE, url);
-  // close current tab and an open a window.
-  // mxBrowser.tabs.newTab({
-  //   url: pdfUrl,
-  //   active: false
-  // });
-
   var currentTab = findTab();
   currentTab.navigate(pdfUrl + '?pdfLink=' + location.href);
 }
