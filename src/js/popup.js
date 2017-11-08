@@ -6,6 +6,17 @@ var mxRuntime = window.external.mxGetRuntime(),
   IS_PDF_URL = 'is-pdf-url',
   loading = false;
 
+function findTab() {
+  for (var i = 0; i < mxBrowser.tabs.length; i++) {
+    var tab = mxBrowser.tabs.getTab(i);
+    if (tab.url === location.href) {
+      return tab;
+    }
+  }
+
+  return null;
+}
+
 function loadPdf(url) {
   if (loading) {
     return;
@@ -14,12 +25,13 @@ function loadPdf(url) {
   loading = true;
   mxStorage.setConfig(PDF_FILE, url);
   // close current tab and an open a window.
-  mxBrowser.tabs.newTab({
-    url: pdfUrl
-  });
+  // mxBrowser.tabs.newTab({
+  //   url: pdfUrl,
+  //   active: false
+  // });
 
-  var currentTab = mxBrowser.tabs.getCurrentTab();
-  currentTab.close();
+  var currentTab = findTab();
+  currentTab.navigate(pdfUrl + '?pdfLink=' + location.href);
 }
 
 function init(url) {
