@@ -12,6 +12,22 @@ function debug(message) {
   }
 }
 
+function pdfExistsSync(obj) {
+  var http = new XMLHttpRequest();
+  http.open('HEAD', obj.url);
+  http.onreadystatechange = function() {
+      if (this.readyState == this.DONE) {
+        var contentType = this.getResponseHeader('Content-Type');
+        if (contentType && contentType.indexOf('application/pdf') > -1) {
+          mxRuntime.post(obj.listenId, {
+            isPdfUrl: true
+          });
+        }
+      }
+  };
+  http.send();
+}
+
 mxRuntime.listen(IS_PDF_URL, function (obj) {
   fetch(obj.url, {
     method: 'HEAD'
