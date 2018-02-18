@@ -3,6 +3,7 @@ var mxRuntime = window.external.mxGetRuntime(),
   mxStorage = mxRuntime.storage,
   debugMode = false,
   PDF_FILE = 'pdf-file',
+  OPENED_PDFS = 'OPENED_PDFS',
   pdfUrl = 'mxaddon-pkg://{d0e723de-bdd9-4c64-95c6-c1dc9ce289f1}/window.html',
   IS_PDF_URL = 'is-pdf-url';
 
@@ -34,6 +35,18 @@ mxRuntime.listen(IS_PDF_URL, function (obj) {
   }).then(function (res) {
     var contentType = res.headers.get('Content-Type');
     if (contentType && contentType.indexOf('application/pdf') > -1) {
+      // save current pdf doc in to the history.
+      var openedPdfs = JSON.parse(mxStorage.getConfig(OPENED_PDFS) || '[]');
+      var foundIndex = openedPdfs.findIndex(function (item) {
+        return item.url === obj.url;
+      });
+
+      if (foundIndex === -1) {
+        openedPdfs.push({ url: obj.url });
+        mxStorage.setConfig(OPENED_PDFS, JSON.stringify(openedPdfs));
+      }
+
+      // send message to the page.
       mxRuntime.post(obj.listenId, {
         isPdfUrl: true
       });

@@ -5,7 +5,7 @@ var mxRuntime = window.external.mxGetRuntime(),
 
 if (confirm(mxLang('app_confirmation'))) {
   mxBrowser.tabs.newTab({
-    url: pdfUrl + '?pdfLink=' + encodeURIComponent(location.href),
+    url: pdfUrl + '?pdfLink=' + location.href,
     activate: true,
     position: 'afterCurrrent'
   });

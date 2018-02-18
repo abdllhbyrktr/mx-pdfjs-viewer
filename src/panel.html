@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title data-lang="app_title">Pdf.js Viewer</title>
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <div class="container">
+    <div class="buttons">
+      <a class="button" href="javascript:;" onclick="openPdf(-1);" data-lang="app_opencurrentpage">Open Current Page</a>
+      <a class="button" href="javascript:;" onclick="clearHistory();" data-lang="app_clear">Clear History</a>
+    </div>
+    <div class="history">
+      <p data-lang="app_lastopened">Last Opened PDF Documents:</p>
+      <ul id="historyList">
+        <li><a href="#">1.pdf</a></li>
+      </ul>
+    </div>
+  </div>
+  <script src="js/panel.js"></script>
+</body>
+</html>
