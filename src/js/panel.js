@@ -46,7 +46,7 @@ function init(docs) {
 
   openedPdfs = docs || JSON.parse(mxStorage.getConfig(OPENED_PDFS) || '[]');
   historyList.innerHTML = '';
-  openedPdfs.forEach(function (h, i) {
+  openedPdfs.reverse().forEach(function (h, i) {
     var title = decodeURIComponent(h.url.split('/').pop() || mxLang('app_unknown'));
     historyList.innerHTML += '<li><a href="javascript:;" title="' + title + '" onclick="openPdf(' + i + ')">' + shorten(title, MAX_TITLE_LENGTH) + '</a></li>'
   });
