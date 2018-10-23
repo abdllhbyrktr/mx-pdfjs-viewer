@@ -21,33 +21,48 @@ body {
   text-align: center;
 }
 
-.button {
-  background-color: white;
-  color: black;
-  border: 2px solid #888;
-  padding: 5px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+.buttons > ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+.buttons > ul > li:nth-child(1) {
+    text-align: right;
+    flex: 1;
+}
+.buttons > ul > li:nth-child(2) {
+    text-align: left;
+    flex: 1;
+}
+.buttons > ul > li a {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border: 2px solid #888;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
 }
 
-ul {
+.history > ul {
   list-style-type: none;
   padding: 0;
   border: 1px solid #ddd;
 }
 
-ul li {
+.history > ul li {
   padding: 8px 16px;
   border-bottom: 1px solid #ddd;
 }
 
-ul li a {
+.history > ul li a {
   color: #888;
   overflow-wrap: break-word;
 }
 
-ul li:last-child {
+.history > ul li:last-child {
   border-bottom: none;
 }

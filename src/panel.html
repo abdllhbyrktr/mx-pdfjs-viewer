@@ -10,8 +10,14 @@
 <body>
   <div class="container">
     <div class="buttons">
-      <a class="button" href="javascript:;" onclick="openPdf(-1);" data-lang="app_opencurrentpage">Open Current Page</a>
-      <a class="button" href="javascript:;" onclick="clearHistory();" data-lang="app_clear">Clear History</a>
+      <ul>
+        <li>
+          <a href="javascript:;" onclick="openPdf(-1);" data-lang="app_opencurrentpage">Open Current Page</a>
+        </li>
+        <li>
+          <a href="javascript:;" onclick="clearHistory();" data-lang="app_clear">Clear History</a>
+        </li>
+      </ul>
     </div>
     <div class="history">
       <p data-lang="app_lastopened">Last Opened PDF Documents:</p>
